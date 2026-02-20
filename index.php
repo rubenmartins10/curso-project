@@ -3,6 +3,9 @@
 error_reporting( E_ALL );
 ini_set( 'display_errors', 1 );
 
+setlocale(LC_TIME, 'pt_PT', 'pt_PT.utf-8', 'pt_PT.utf-8', 'portuguese');
+date_default_timezone_set('Europe/Lisbon');
+
 $all_posts = [
 	[
 		'id' => 1,
@@ -65,12 +68,21 @@ function get_post_2_content() {
     <?php foreach($all_posts as $post): ?>
       <article class="post">
         <header>
-          <h2 class="post-title"><?php echo $post[0]['title']; ?></h2>
+          <h2 class="post-title"><?php echo $post['title']; ?></h2>
         </header>
         <div class="post-content">
-          <?php echo $post[0]['content']; ?>
+          <?php echo $post['content']; ?>
         </div>
-        <footer></footer>
+        <footer>
+          <span class="post-date">
+            Published on:
+            <?php
+            $timestamp = strtotime($post['published_on']);
+            $formatter = new IntlDateFormatter('pt_PT', IntlDateFormatter::NONE, IntlDateFormatter::NONE, null, null, 'dd MMM yyyy');
+            echo $formatter->format($timestamp);
+            ?>
+          </span>
+        </footer>
       </article>
     <?php endforeach; ?>
 	</div>
@@ -78,7 +90,7 @@ function get_post_2_content() {
 
 <footer id="footer">
 	<div id="inner-footer">
-	   Curso de Introdução PHP
+	   Introduction Course to PHP
 	</div>
 </footer>
 </body>
