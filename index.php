@@ -3,6 +3,24 @@
 error_reporting( E_ALL );
 ini_set( 'display_errors', 1 );
 
+$all_posts = [
+	[
+		'id' => 1,
+		'title' => 'Lorem ipsum dolor sit amet',
+		'excerpt' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque vitae pulvinar turpis',
+		'content' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque vitae pulvinar turpis. Nam ut arcu tellus. Morbi sit amet elit lacinia, tincidunt leo a, posuere mi. Mauris nec odio at quam lacinia consequat. Fusce mattis orci ex, eget accumsan neque vehicula et. Vivamus consectetur tempor lacus, in tincidunt massa rutrum ut. Pellentesque augue felis, iaculis eu interdum et, semper eu purus. Vestibulum a viverra justo.',
+		'published_on' => '2018-01-11 10:15:00',
+	],
+	[
+		'id' => 2,
+		'title' => 'Nunc eget enim vulputate',
+		'excerpt' => 'Integer placerat hendrerit pharetra. Nunc eget enim vulputate, efficitur dolor pretium',
+		'content' => 'Integer placerat hendrerit pharetra. Nunc eget enim vulputate, efficitur dolor pretium, pharetra nulla. Proin mattis aliquam sem. Morbi vel mi ac magna consequat tempus vitae eget diam. Aliquam ac sapien a tortor rutrum faucibus nec nec urna. Ut et nisl magna. Vivamus elit risus, rhoncus vitae elit suscipit, porta pulvinar justo. Aliquam sodales urna eu scelerisque ultrices. Fusce et neque id risus gravida vestibulum a et urna. Curabitur aliquam accumsan leo, pharetra tempus velit condimentum et. Donec dapibus faucibus lorem a tincidunt. Donec ultricies id metus et aliquam. Vestibulum dapibus magna nec elit ultrices, ornare pretium nisi dictum.',
+		'published_on' => '2018-01-11 10:15:00',
+	],
+];
+
+
 function get_post_1_title() {
 	$post_1_title = 'Lorem ipsum dolor sit amet';
 	return $post_1_title;
@@ -45,14 +63,24 @@ function get_post_2_content() {
 
 <div id="content" >
 	<div class="posts">
-		<div>
-			<h2><?php echo get_post_1_title(); ?></h2>
-			<div><?php echo get_post_1_content(); ?></div>
-		</div>
-		<div>
-			<h2><?php echo get_post_2_title(); ?></h2>
-			<div><?php echo get_post_2_content(); ?></div>
-		</div>
+		<article class="post">
+      <header>
+        <h2 class="post-title"><?php echo $all_posts[0]['title']; ?></h2>
+      </header>
+      <div class="post-content">
+        <?php echo $all_posts[0]['content']; ?>
+      </div>
+      <footer></footer>
+    </article>
+    <article class="post">
+      <header>
+        <h2 class="post-title"><?php echo $all_posts[1]['title']; ?></h2>
+      </header>
+      <div class="post-content">
+        <?php echo $all_posts[0]['content']; ?>
+      </div>
+      <footer></footer>
+    </article>
 	</div>
 </div>
 
