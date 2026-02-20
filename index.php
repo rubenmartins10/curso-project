@@ -23,6 +23,16 @@ $all_posts = [
 	],
 ];
 
+$post_found = false;
+if ( isset( $_GET['view'])) {
+  foreach ( $all_posts as $post) {
+    if ($post['id'] == $_GET['view']){
+      $post_found = true;
+      $all_posts = [ $post];
+    }
+  }
+}
+
 function get_post_1_title() {
 	$post_1_title = 'Lorem ipsum dolor sit amet';
 	return $post_1_title;
@@ -68,10 +78,16 @@ function get_post_2_content() {
     <?php foreach($all_posts as $post): ?>
       <article class="post">
         <header>
-          <h2 class="post-title"><?php echo $post['title']; ?></h2>
+          <h2 class="post-title">
+            <a href="?view=<?php echo $post['id']; ?>"><?php echo $post['title']; ?></a>
+          </h2>
         </header>
         <div class="post-content">
-          <?php echo $post['content']; ?>
+          <?php if($post_found): ?>
+            <?php echo $post['content']; ?>
+          <?php else: ?>
+            <?php echo $post['excerpt']; ?>
+          <?php endif; ?>
         </div>
         <footer>
           <span class="post-date">
