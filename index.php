@@ -1,4 +1,8 @@
 <?php
+
+error_reporting( E_ALL );
+ini_set( 'display_errors', 1 );
+
 function get_post_1_title() {
 	$post_1_title = 'Lorem ipsum dolor sit amet';
 	return $post_1_title;
