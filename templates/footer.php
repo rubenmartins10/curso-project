@@ -2,7 +2,7 @@
 
 <footer id="footer">
 	<div id="inner-footer">
-		Curso de Introdução a PHP
+		Introduction Course to PHP
 	</div>
 </footer>
 </body>
