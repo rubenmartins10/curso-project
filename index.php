@@ -1,11 +1,5 @@
+<?php require('init.php'); ?>
 <?php
-
-error_reporting( E_ALL );
-ini_set( 'display_errors', 1 );
-
-setlocale(LC_TIME, 'pt_PT', 'pt_PT.utf-8', 'pt_PT.utf-8', 'portuguese');
-date_default_timezone_set('Europe/Lisbon');
-
 $all_posts = [
 	[
 		'id' => 1,
@@ -69,6 +63,8 @@ function get_post_2_content() {
 			<a href="index.php">Micro CMS</a>
 		</h1>
 		<ul class="main-menu column clearfix">
+    <li><a href="index.php">Blog</a></li>
+    <li><a href="new-post.php">New Post</a></li>
 		</ul>
 	</div>
 </nav>
