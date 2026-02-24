@@ -1,30 +1,15 @@
 <?php require('init.php'); ?>
+<?php require('templates/header.php'); ?>
 <?php
-$all_posts = [
-	[
-		'id' => 1,
-		'title' => 'Lorem ipsum dolor sit amet',
-		'excerpt' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque vitae pulvinar turpis',
-		'content' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque vitae pulvinar turpis. Nam ut arcu tellus. Morbi sit amet elit lacinia, tincidunt leo a, posuere mi. Mauris nec odio at quam lacinia consequat. Fusce mattis orci ex, eget accumsan neque vehicula et. Vivamus consectetur tempor lacus, in tincidunt massa rutrum ut. Pellentesque augue felis, iaculis eu interdum et, semper eu purus. Vestibulum a viverra justo.',
-		'published_on' => '2018-01-11 10:15:00',
-	],
-	[
-		'id' => 2,
-		'title' => 'Nunc eget enim vulputate',
-		'excerpt' => 'Integer placerat hendrerit pharetra. Nunc eget enim vulputate, efficitur dolor pretium',
-		'content' => 'Integer placerat hendrerit pharetra. Nunc eget enim vulputate, efficitur dolor pretium, pharetra nulla. Proin mattis aliquam sem. Morbi vel mi ac magna consequat tempus vitae eget diam. Aliquam ac sapien a tortor rutrum faucibus nec nec urna. Ut et nisl magna. Vivamus elit risus, rhoncus vitae elit suscipit, porta pulvinar justo. Aliquam sodales urna eu scelerisque ultrices. Fusce et neque id risus gravida vestibulum a et urna. Curabitur aliquam accumsan leo, pharetra tempus velit condimentum et. Donec dapibus faucibus lorem a tincidunt. Donec ultricies id metus et aliquam. Vestibulum dapibus magna nec elit ultrices, ornare pretium nisi dictum.',
-		'published_on' => '2018-01-11 10:15:00',
-	],
-];
+
+$all_posts = get_all_posts();
 
 $post_found = false;
 if ( isset( $_GET['view'])) {
-  foreach ( $all_posts as $post) {
-    if ($post['id'] == $_GET['view']){
-      $post_found = true;
-      $all_posts = [ $post];
-    }
-  }
+	$post_found = get_post($_GET['view']);
+	if ($post_found) {
+		$all_posts = [ $post_found ];
+	}
 }
 
 function get_post_1_title() {
@@ -47,28 +32,6 @@ function get_post_2_content() {
 	return $post_2_content;
 }
 ?>
-<!DOCTYPE html>
-<html lang="en">
-<head>
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<meta http-equiv="X-UA-Compatible" content="ie=edge">
-	<title>Micro CMS</title>
-	<link rel="stylesheet" href="assets/style.css"></head>
-<body>
-
-<nav id="site-navigation" role="navigation" class="row row-center">
-	<div class="column">
-		<h1>
-			<a href="index.php">Micro CMS</a>
-		</h1>
-		<ul class="main-menu column clearfix">
-    <li><a href="index.php">Blog</a></li>
-    <li><a href="new-post.php">New Post</a></li>
-		</ul>
-	</div>
-</nav>
-
 <div id="content" >
 	<div class="posts">
     <?php foreach($all_posts as $post): ?>
@@ -98,12 +61,4 @@ function get_post_2_content() {
       </article>
     <?php endforeach; ?>
 	</div>
-</div>
-
-<footer id="footer">
-	<div id="inner-footer">
-	   Introduction Course to PHP
-	</div>
-</footer>
-</body>
-</html>
+<?php require('templates/footer.php'); ?>
