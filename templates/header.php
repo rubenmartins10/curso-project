@@ -11,11 +11,11 @@
 <nav id="site-navigation" role="navigation" class="row row-center">
 	<div class="column">
 		<h1>
-			<a href="index.php">Micro CMS</a>
+			<a href="new-post.php">Micro CMS</a>
 		</h1>
 		<ul class="main-menu column clearfix">
-			<li><a href="/index.php">Blog</a></li>
-			<li><a href="/index.php">New Post</a></li>
+    <li><a href="index.php">Blog</a></li>
+    <li><a href="new-post.php">New Post</a></li>
 		</ul>
 	</div>
 </nav>
