@@ -22,7 +22,7 @@ switch ( $action ) {
 		}
 
 		$all_posts = get_all_posts();
-		require 'templates/list-posts.php';
+		require '../templates/list-posts.php';
 		break;
 	}
 	case 'new-post': {
@@ -48,7 +48,7 @@ switch ( $action ) {
 			}
 		}
 
-		require 'templates/new-post.php';
+		require '../templates/new-post.php';
 		break;
 	}
 	default: {
