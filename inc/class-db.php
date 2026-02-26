@@ -3,9 +3,9 @@
 class DB {
   private $app_db = false;
 
-  public __construct($host, $user, $password, $database, $port) {
+  public function __construct($host, $user, $password, $database, $port) {
     $this->app_db = mysqli_connect(DB_HOST, DB_USER, DB_PASSWORD, DB_DATABASE, DB_PORT);
-    if ($this->$app_db === false) {
+    if ($this->app_db === false) {
       die('Error connecting to database');
     }
   }
