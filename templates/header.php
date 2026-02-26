@@ -16,6 +16,11 @@
 		<ul class="main-menu column clearfix">
     <li><a href="index.php">Blog</a></li>
     <li><a href="new-post.php">New Post</a></li>
+		<?php if(is_logged_in() ): ?>
+			<li><a href="login.php">Login</a></li>
+		<?php else: ?>
+			<li><a href="?logout=true">Logout</a></li>
+		<?php endif; ?>
 		</ul>
 	</div>
 </nav>

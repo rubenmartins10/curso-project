@@ -4,6 +4,8 @@ if(! file_exists('config.php')){
   die('ERROR: Does not exist config.php');
 }
 
+session_start();
+
 require ('config.php');
 
 setlocale(LC_TIME, SITE_LANG);
@@ -16,3 +18,7 @@ if ( $app_db === false) {
 
 require('inc/posts.php');
 require('inc/helpers.php');
+
+if ( isset($_GET['logout'] ) ) {
+  logout();
+}

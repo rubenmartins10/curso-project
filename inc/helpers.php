@@ -15,3 +15,22 @@ function check_hash($action, $hash) {
   }
   return false;
 }
+
+function is_logged_in() {
+  $is_user_logged_in = isset($_POST['username']) && $_SESSION['user'] === ADMIN_USER;
+  return $is_user_logged_in;
+}
+
+function login($username, $password) {
+  if($_POST['username'] === ADMIN_USER && $_POST['password'] === ADMIN_PASS) {
+    $_SESSION['user'] = ADMIN_USER;
+    return true;
+  }
+  return false;
+}
+
+function logout() {
+  unset($_SESSION['user'] );
+  redirect_to('index.php');
+  session_destroy();
+}
