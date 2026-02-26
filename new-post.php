@@ -21,7 +21,7 @@ if ( isset($_POST['submit-new-post'] ) ) {
   else {
     insert_post( $title, $excerpt, $content );
     //Redirect to blog
-    redirect_to( 'index.php?sucess=true');
+    redirect_to( 'index.php?success=true');
   }
 }
  ?>
