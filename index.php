@@ -3,6 +3,10 @@
 
 if ( isset( $_GET['delete-post'])) {
 	$id = $_GET['delete-post'];
+	if(!check_hash('delete-post' . $id, $_GET['hash'])){
+		die('Hacking, right?');
+	}
+
 	delete_post($id);
 	redirect_to('index.php');
 	die();
@@ -69,7 +73,7 @@ function get_post_2_content() {
             ?>
           </span>
 					<div class="delete-post">
-						<a href="?delete-post=<?php echo $post['id']; ?>">Delete post.</a>
+						<a href="?delete-post=<?php echo $post['id']; ?>&hash=<?php echo generate_hash('delete-post' . $post['id']); ?>">Delete post.</a>
 					</div>
         </footer>
       </article>
