@@ -17,8 +17,7 @@ function check_hash($action, $hash) {
 }
 
 function is_logged_in() {
-  $is_user_logged_in = isset($_POST['username']) && $_SESSION['user'] === ADMIN_USER;
-  return $is_user_logged_in;
+  return isset($_SESSION['user']) && $_SESSION['user'] === ADMIN_USER;
 }
 
 function login($username, $password) {
@@ -31,6 +30,6 @@ function login($username, $password) {
 
 function logout() {
   unset($_SESSION['user'] );
-  redirect_to('index.php');
   session_destroy();
+  redirect_to('index.php');
 }
