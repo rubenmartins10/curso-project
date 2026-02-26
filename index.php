@@ -72,9 +72,11 @@ function get_post_2_content() {
             echo $formatter->format($timestamp);
             ?>
           </span>
+					<?php if ( is_logged_in() ): ?>
 					<div class="delete-post">
 						<a href="?delete-post=<?php echo $post['id']; ?>&hash=<?php echo generate_hash('delete-post' . $post['id']); ?>">Delete post.</a>
 					</div>
+					<?php endif; ?>
         </footer>
       </article>
     <?php endforeach; ?>

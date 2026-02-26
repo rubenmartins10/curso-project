@@ -1,4 +1,4 @@
-<?php require __DIR__ . '/../templates/header.php' ?>
+<?php require __DIR__ . '/../../templates/header.php' ?>
   <h2>Create New Post</h2>
 
 <?php if($error): ?>
@@ -21,4 +21,4 @@
       <input type="submit" name="submit-new-post" value="New Post">
     </p>
   </form>
-<?php require __DIR__ . '/../templates/footer.php'; ?>
+<?php require __DIR__ . '/../../templates/footer.php' ?>
