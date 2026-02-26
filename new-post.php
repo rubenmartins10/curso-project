@@ -21,15 +21,7 @@ if ( isset($_POST['submit-new-post'] ) ) {
     $error = true;
   }
   else {
-    $new_post = [
-      'id' => 0,
-      'title' => $title,
-      'excerpt' => $excerpt,
-      'content' => $content,
-      'published_on' => date('Y-m-d H:i:s')
-    ];
-
-    die('Forms sent');
+    insert_post( $title, $excerpt, $content );
   }
 }
  ?>

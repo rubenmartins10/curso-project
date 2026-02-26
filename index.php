@@ -2,27 +2,12 @@
 <?php require('templates/header.php'); ?>
 <?php
 
-$host = '127.0.0.1';
-$user = 'root';
-$password = '';
-$database = 'microcms';
-$port = '3307';
-
-
-$app_db = mysqli_connect( $host, $user, $password, $database, $port);
-if ( $app_db === false) {
-	die('Error connecting to database');
-}
-
-$result = mysqli_query($app_db, "SELECT * FROM posts");
-$all_posts = mysqli_fetch_all( $result, MYSQLI_ASSOC);
+$all_posts = get_all_posts();
 
 $post_found = false;
 if ( isset( $_GET['view'])) {
-	$query = "SELECT * FROM posts WHERE id = " . $_GET['view'];
-	$result = mysqli_query( $app_db, $query);
-	if ( $result ) {
-		$post_found = mysqli_fetch_assoc( $result );
+	$post_found = get_post($_GET['view']);
+	if ( $post_found ) {
 		$all_posts = [ $post_found ];
 	}
 }
