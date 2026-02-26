@@ -1,12 +1,4 @@
-/*!
- * Milligram v1.3.0
- * https://milligram.github.io
- *
- * Copyright (c) 2017 CJ Patoilo
- * Licensed under the MIT license
- */
 
-*,
 *:after,
 *:before {
 	box-sizing: inherit;
@@ -76,8 +68,6 @@ input[type='submit']:hover {
 	outline: 0;
 }
 
-/* ... (Estilos de botões mantidos conforme original) ... */
-
 code {
 	background: #f4f5f6;
 	border-radius: .4rem;
@@ -99,7 +89,7 @@ hr {
 	margin: 3.0rem 0;
 }
 
-/* Form Elements */
+
 input[type='email'],
 input[type='text'],
 textarea,
@@ -113,7 +103,7 @@ select {
 	width: 100%;
 }
 
-/* Grid System */
+
 .container {
 	margin: 0 auto;
 	max-width: 112.0rem;
@@ -151,7 +141,6 @@ select {
 	}
 }
 
-/* Custom CMS Styles */
 nav#site-navigation {
 	text-align: center;
 	margin-bottom: 3rem;

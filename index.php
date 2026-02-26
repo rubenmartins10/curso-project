@@ -4,7 +4,7 @@
 if ( isset( $_GET['delete-post'])) {
 	$id = $_GET['delete-post'];
 	delete_post($id);
-	redirect_to( ' index.php ');
+	redirect_to('index.php');
 	die();
 }
 $all_posts = get_all_posts();
@@ -38,8 +38,8 @@ function get_post_2_content() {
 }
 ?>
 <?php require('templates/header.php'); ?>
-<?php if(isset($_GET['sucess'])): ?>
-	<div class="sucess">
+<?php if(isset($_GET['success'])): ?>
+	<div class="success">
 		Post has been created with sucess!
 	</div>
 <?php endif; ?>
