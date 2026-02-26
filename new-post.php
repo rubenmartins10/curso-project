@@ -1,6 +1,4 @@
 <?php require('init.php'); ?>
-<?php require('templates/header.php'); ?>
-
 <?php
 //Do the forms has been submited?
   //YES: Check if everything is ok and save the post_1_title
@@ -22,9 +20,12 @@ if ( isset($_POST['submit-new-post'] ) ) {
   }
   else {
     insert_post( $title, $excerpt, $content );
+    //Redirect to blog
+    redirect_to( ' index.php?sucess=true ');
   }
 }
  ?>
+ <?php require('templates/header.php'); ?>
 <h2>Create new post</h2>
 
 <?php if ($error): ?>

@@ -1,7 +1,12 @@
 <?php require('init.php'); ?>
-<?php require('templates/header.php'); ?>
 <?php
 
+if ( isset( $_GET['delete-post'])) {
+	$id = $_GET['delete-post'];
+	delete_post($id);
+	redirect_to( ' index.php ');
+	die();
+}
 $all_posts = get_all_posts();
 
 $post_found = false;
@@ -32,6 +37,12 @@ function get_post_2_content() {
 	return $post_2_content;
 }
 ?>
+<?php require('templates/header.php'); ?>
+<?php if(isset($_GET['sucess'])): ?>
+	<div class="sucess">
+		Post has been created with sucess!
+	</div>
+<?php endif; ?>
 <div id="content" >
 	<div class="posts">
     <?php foreach($all_posts as $post): ?>
@@ -57,6 +68,9 @@ function get_post_2_content() {
             echo $formatter->format($timestamp);
             ?>
           </span>
+					<div class="delete-post">
+						<a href="?delete-post=<?php echo $post['id']; ?>">Delete post.</a>
+					</div>
         </footer>
       </article>
     <?php endforeach; ?>

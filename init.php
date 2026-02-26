@@ -1,22 +1,18 @@
 <?php
 
-error_reporting( E_ALL );
-ini_set( 'display_errors', 1 );
+if(! file_exists('config.php')){
+  die('ERROR: Does not exist config.php');
+}
 
-setlocale(LC_TIME, 'pt_PT', 'pt_PT.utf-8', 'pt_PT.utf-8', 'portuguese');
-date_default_timezone_set('Europe/Lisbon');
+require ('config.php');
 
-require('inc/posts.php');
+setlocale(LC_TIME, SITE_LANG);
+date_default_timezone_set(SITE_TIMEZONE);
 
-//Connection to database
-$host = '127.0.0.1';
-$user = 'root';
-$password = '';
-$database = 'microcms';
-$port = '3307';
-
-
-$app_db = mysqli_connect( $host, $user, $password, $database, $port);
+$app_db = mysqli_connect( DB_HOST, DB_USER, DB_PASSWORD, DB_DATABASE, DB_PORT);
 if ( $app_db === false) {
   die('Error connecting to database');
 }
+
+require('inc/posts.php');
+require('inc/helpers.php');
